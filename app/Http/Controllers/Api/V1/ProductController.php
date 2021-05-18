@@ -98,7 +98,12 @@ class ProductController extends Controller
         $product = Product::find($id);
 
         if($product){
-            return Product::destroy($id);
+            Product::destroy($id);
+
+            return [
+                'status' => 200,
+                'message' => 'Product deleted'
+            ];
         }
         else{
             return [
